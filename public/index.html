@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liyin — Instagram Downloader</title>
+  <meta name="description" content="Unduh foto, video, reels, dan carousel Instagram dalam kualitas asli. Cepat, privat, tanpa watermark." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,450;9..144,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/assets/logo-master.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <div class="grain"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <img class="brand-mark" src="/assets/logo-master.svg" alt="Liyin" width="34" height="34" />
+      <span class="brand-name">Liyin</span>
+    </div>
+    <span class="brand-tag">Instagram Media Downloader</span>
+  </header>
+
+  <main class="hero">
+    <p class="eyebrow">Publik &middot; Cepat &middot; Kualitas Asli</p>
+    <h1 class="headline">
+      Simpan momen Instagram<br />
+      <span class="headline-accent">tanpa kehilangan kualitas.</span>
+    </h1>
+    <p class="subline">
+      Tempel tautan post, reel, atau IGTV. Kami ambil media aslinya —
+      foto, video, maupun carousel — siap unduh dalam hitungan detik.
+    </p>
+
+    <form id="download-form" class="ticket-form" autocomplete="off">
+      <div class="ticket-form__field">
+        <label for="ig-url" class="sr-only">Tautan Instagram</label>
+        <input
+          id="ig-url"
+          name="url"
+          type="url"
+          inputmode="url"
+          placeholder="https://www.instagram.com/reel/..."
+          required
+        />
+        <button type="button" id="paste-btn" class="ghost-btn" title="Tempel dari clipboard">
+          Tempel
+        </button>
+      </div>
+      <button type="submit" id="submit-btn" class="gold-btn">
+        <span class="gold-btn__label">Ambil Media</span>
+        <span class="gold-btn__spinner" hidden></span>
+      </button>
+    </form>
+
+    <p id="form-error" class="form-error" role="alert" hidden></p>
+
+    <div class="shimmer-line" id="shimmer-line" hidden></div>
+  </main>
+
+  <section id="result-section" class="result-section" hidden>
+    <div class="result-meta">
+      <span class="result-meta__user" id="result-username">@—</span>
+      <span class="result-meta__count" id="result-count"></span>
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <template id="media-card-template">
+    <article class="media-card">
+      <div class="media-card__frame">
+        <div class="media-card__corner media-card__corner--tl"></div>
+        <div class="media-card__corner media-card__corner--tr"></div>
+        <div class="media-card__corner media-card__corner--bl"></div>
+        <div class="media-card__corner media-card__corner--br"></div>
+        <div class="media-card__media"></div>
+        <span class="media-card__badge"></span>
+      </div>
+      <a class="media-card__download gold-btn gold-btn--small" download>
+        <span class="gold-btn__label">Unduh</span>
+      </a>
+    </article>
+  </template>
+
+  <footer class="site-footer">
+    <p>
+      Liyin hanya memproses konten publik. Hormati hak cipta &amp; privasi
+      pemilik akun sebelum membagikan ulang media yang diunduh.
+    </p>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

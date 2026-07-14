@@ -1,0 +1,39 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c1d22"/>
+      <stop offset="100%" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8cd94"/>
+      <stop offset="100%" stop-color="#c9a96a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="509" height="509" rx="110.5" fill="none" stroke="#c9a96a" stroke-opacity="0.18" stroke-width="3"/>
+
+  <!-- photo frame (image icon with folded corner = "foto") -->
+  <path d="M148 150 H302 L364 212 V352 a14 14 0 0 1 -14 14 H148
+           a14 14 0 0 1 -14 -14 V164 a14 14 0 0 1 14 -14 Z"
+        fill="#15161a" stroke="url(#gold)" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M302 150 V198 a14 14 0 0 0 14 14 H364" fill="none" stroke="url(#gold)" stroke-width="12" stroke-linejoin="round"/>
+
+  <!-- sun -->
+  <circle cx="196" cy="228" r="18" fill="url(#gold)"/>
+
+  <!-- mountains, clipped to frame -->
+  <clipPath id="frameClip">
+    <path d="M148 150 H302 L364 212 V352 a14 14 0 0 1 -14 14 H148 a14 14 0 0 1 -14 -14 V164 a14 14 0 0 1 14 -14 Z"/>
+  </clipPath>
+  <path d="M120 340 L206 262 L246 300 L306 240 L392 340 Z"
+        fill="url(#gold)" opacity="0.85" clip-path="url(#frameClip)"/>
+
+  <!-- download badge -->
+  <circle cx="374" cy="358" r="82" fill="url(#bg)" stroke="#0b0b0d" stroke-width="10"/>
+  <circle cx="374" cy="358" r="82" fill="none" stroke="url(#gold)" stroke-width="10"/>
+  <path d="M374 322 V380 M374 380 L350 356 M374 380 L398 356"
+        fill="none" stroke="url(#gold)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M344 398 H404" stroke="url(#gold)" stroke-width="14" stroke-linecap="round"/>
+</svg>
