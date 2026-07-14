@@ -1,4 +1,20 @@
-const { instagramGetUrl } = require("instagram-url-direct");
+const igModule = require("instagram-url-direct");
+
+// Package `instagram-url-direct` mengekspor fungsinya dengan cara berbeda
+// tergantung versi (module.exports = fn langsung, atau { instagramGetUrl: fn },
+// atau lewat interop default saat ESM di-require dari CJS). Baris ini
+// mencoba ketiga kemungkinan supaya tidak error "is not a function".
+const instagramGetUrl =
+  typeof igModule === "function"
+    ? igModule
+    : igModule.instagramGetUrl || igModule.default;
+
+if (typeof instagramGetUrl !== "function") {
+  throw new Error(
+    "Tidak bisa menemukan fungsi instagramGetUrl dari package instagram-url-direct. " +
+      "Cek versi package yang ter-install (package.json / node_modules)."
+  );
+}
 
 /**
  * Mengambil detail media dari sebuah link Instagram publik (post, reel, atau tv)
