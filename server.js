@@ -12,6 +12,13 @@ const downloadRoutes = require("./routes/download");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Railway (dan hampir semua platform hosting) menjalankan app di belakang
+// reverse proxy. Baris ini memberi tahu Express untuk percaya header
+// X-Forwarded-For dari proxy tsb, supaya express-rate-limit bisa mengenali
+// IP asli tiap user dengan benar (tanpa ini akan muncul warning
+// ERR_ERL_UNEXPECTED_X_FORWARDED_FOR di log).
+app.set("trust proxy", 1);
+
 // --- Middleware keamanan & utilitas ---
 app.use(
   helmet({
