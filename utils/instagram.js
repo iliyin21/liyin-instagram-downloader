@@ -13,8 +13,12 @@ async function fetchInstagramMedia(url) {
   try {
     result = await instagramGetUrl(url);
   } catch (err) {
-    // Paket instagram-url-direct melempar error string/objek bila
-    // post privat, dihapus, atau struktur halaman Instagram berubah.
+    // Log error asli ke console server (muncul di Railway > Deployments > View Logs)
+    // supaya kita tahu penyebab sebenarnya: post privat, IP server diblokir
+    // Instagram, atau struktur halaman Instagram berubah.
+    console.error("[instagramGetUrl] gagal untuk url:", url);
+    console.error("[instagramGetUrl] detail error:", err);
+
     throw new Error(
       "Gagal mengambil media. Pastikan link publik dan masih aktif."
     );
